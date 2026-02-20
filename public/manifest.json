@@ -1,0 +1,17 @@
+{
+  "name": "File Droper V2",
+  "short_name": "File Droper",
+  "description": "Share files instantly with anyone using room codes",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0118",
+  "theme_color": "#a855f7",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
