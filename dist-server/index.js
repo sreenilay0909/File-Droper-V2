@@ -1,20 +1,15 @@
-"use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-const express_1 = __importDefault(require("express"));
-const http_1 = require("http");
-const socket_io_1 = require("socket.io");
-const cors_1 = __importDefault(require("cors"));
-const app = (0, express_1.default)();
-app.use((0, cors_1.default)());
-const httpServer = (0, http_1.createServer)(app);
+import express from 'express';
+import { createServer } from 'http';
+import { Server } from 'socket.io';
+import cors from 'cors';
+const app = express();
+app.use(cors());
+const httpServer = createServer(app);
 // Get configuration from environment or use defaults
 const PORT = process.env.PORT || 4000;
 const CORS_ORIGIN = process.env.CORS_ORIGIN || 'http://localhost:3000';
 const MAX_FILE_SIZE = parseInt(process.env.MAX_FILE_SIZE || '104857600'); // 100MB default
-const io = new socket_io_1.Server(httpServer, {
+const io = new Server(httpServer, {
     cors: {
         origin: CORS_ORIGIN,
         methods: ['GET', 'POST']
