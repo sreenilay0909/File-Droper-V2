@@ -65,7 +65,7 @@ export default function Room() {
     }
 
     const serverUrl = process.env.NODE_ENV === 'production' 
-      ? window.location.origin 
+      ? 'https://file-droper-backend.onrender.com' 
       : 'http://localhost:4000'
     
     socketRef.current = io(serverUrl)
