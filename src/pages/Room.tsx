@@ -163,7 +163,7 @@ export default function Room() {
 
   const processFile = (file: File) => {
     const fileId = Date.now().toString() + Math.random()
-    const chunkSize = 256 * 1024 // 256KB chunks
+    
     
     // For small files (< 1MB), send directly
     if (file.size < 1024 * 1024) {
@@ -433,18 +433,7 @@ export default function Room() {
     return '📄'
   }
 
-  const formatTime = (timestamp: number): string => {
-    const now = Date.now()
-    const diff = now - timestamp
-    const seconds = Math.floor(diff / 1000)
-    const minutes = Math.floor(seconds / 60)
-    const hours = Math.floor(minutes / 60)
-    
-    if (seconds < 60) return 'Just now'
-    if (minutes < 60) return `${minutes}m ago`
-    if (hours < 24) return `${hours}h ago`
-    return new Date(timestamp).toLocaleDateString()
-  }
+  
 
   return (
     <div className="room-container">
